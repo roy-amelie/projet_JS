@@ -1,0 +1,74 @@
+body{
+    background-color:#e4fde1 ;
+}
+/*nav*/
+body header a{
+    color: #e4fde1;
+}
+
+.nav{
+    background-color: #114b5f;
+    margin: 0px;  
+}
+
+.button {
+    background-color: #6b2737 ;
+}
+
+.button:hover{
+    background-color: cadetblue;
+}
+
+.nav li {
+    display: inline; 
+}
+
+/*titre*/
+
+body header div{
+    color: #e4fde1;
+    background-color: #6b2737;
+    text-align: center;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+body main{
+    background-color: #e4fde1;
+    height: 100%;
+}
+
+.carousel{
+    margin: 20px;
+    height: 90px;
+    background-color: #456990;
+    border-radius: 40px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+
+.post {
+    margin: 20px;
+    background-color: #f45b69;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+
+
+  
+  
