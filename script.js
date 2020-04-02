@@ -45,7 +45,7 @@ $(document).ready(function () {
         direction: "left",
         scroll: {
             items: 1,
-            width: 300,
+            width: 50,
             easing: "swing",
             duration: 1000,
             pauseOnHover: true
@@ -56,5 +56,15 @@ $(document).ready(function () {
         }
     });
 });
+
+let dropdown = document.querySelector('.dropdown')
+
+dropdown.addEventListener('click', (e) => {
+  if (dropdown.classList.contains('closed')) {
+    dropdown.classList.remove('closed')
+  } else {
+    dropdown.classList.add('closed')    
+  }
+})
 
 
