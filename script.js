@@ -1,17 +1,21 @@
+
+
 function fetchAllPosts() {
     fetch("https://ghibliapi.herokuapp.com/films")
         .then(response => response.json())
-        .then(post => {createFeed(post);})
+        .then(post => { createFeed(post); })
 }
 
-function createFeed(data){
-    let post= document.querySelector('.post');
-    data.forEach(element=>{
-        post.appendChild(createPost(element));
+function createFeed(data) {
+    let post = document.querySelector('.post');
+    data.forEach((element, i) => {
+        if (i < 10) {
+            post.appendChild(createPost(element));
+        }
     })
 }
 
-function createPost(dataPost){
+function createPost(dataPost) {
     let new_div_element = document.createElement('div');
     new_div_element.style.border = "solid #6B2737";
     new_div_element.style.borderRadius = "25px";
@@ -29,5 +33,28 @@ function createPost(dataPost){
 }
 
 fetchAllPosts();
+
+$(document).ready(function () {
+    //Using default configuration
+    //$('#carousel').carouFredSel();
+
+    // Using custom configuration
+    $('#carousel').carouFredSel({
+        items: 3,
+        responsive: true,
+        direction: "left",
+        scroll: {
+            items: 1,
+            width: 300,
+            easing: "swing",
+            duration: 1000,
+            pauseOnHover: true
+        },
+        items:{
+            width:500,
+            heigth:400,
+        }
+    });
+});
 
 

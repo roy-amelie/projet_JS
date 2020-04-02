@@ -23,6 +23,9 @@ body header a{
     display: inline; 
 }
 
+/*carousel*/
+
+
 /*titre*/
 
 body header div{
@@ -41,20 +44,6 @@ body main{
     background-color: #e4fde1;
     height: 100%;
 }
-
-.carousel{
-    margin: 20px;
-    height: 90px;
-    background-color: #456990;
-    border-radius: 40px;
-    display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
-}
-
 
 .post {
     margin: 20px;
