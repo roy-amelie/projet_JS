@@ -18,20 +18,14 @@
 <body>
     <header>
         <nav>
-            <div class="dropdown closed">
-                <h2 class="icon">Menu <span>∆</span></h2>
+            <div class="dropdown ">
+                <h2 class="icon">Menu <span>+</span></h2>
                 <ul class="menu">
-                    <li><a href="#">Feed</a></li>
-                    <li><a href="#">Gallery 2</a></li>
+                    <li><a href="page_accueil.html">Feed</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="#">Jeux</a></li>
                 </ul>
             </div>
-            <!-- <ul class="nav">
-                <li><button></button></li>
-                <li><button class="button button-nav"><a href="page_accueil.html">Accueil</a></button></li>
-                <li><button class="button button-nav"><a href="#">Gallerie</a></button></li>
-                <li><button class="button button-nav"><a href="#">Jeux</a></button></li>
-            </ul> -->
         </nav>
         <div>
             <h1>Mon super Blog</h1>
@@ -46,7 +40,17 @@
         </div>
 
         <div class="post">
-
+            <div class="form ">
+                <h5 class="icon">Ajouter un article <span>+</span></h5>
+                <form >
+                    <label for="titre">Titre</label><br>
+                    <input type="text"  class="champ"><br>
+                    <label for="post">Article</label><br>
+                    <textarea name="post" rows="5" cols="33"  class="champ"></textarea><br>
+                    <input type="submit" id="submit" value="Créer">
+                </form>
+            </div>
+            
         </div>
     </main>
     <footer>

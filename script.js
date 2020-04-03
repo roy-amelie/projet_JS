@@ -8,27 +8,23 @@ function fetchAllPosts() {
 
 function createFeed(data) {
     let post = document.querySelector('.post');
-    data.forEach((element, i) => {
-        if (i < 10) {
-            post.appendChild(createPost(element));
-        }
+    console.log(data)
+    data.forEach(element => {
+        post.appendChild(createPost(element));
     })
 }
 
-function createPost(dataPost) {
+function createPost(dataPost, poselement = document.querySelector('.post').firstChild) {
     let new_div_element = document.createElement('div');
-    new_div_element.style.border = "solid #6B2737";
-    new_div_element.style.borderRadius = "25px";
-    new_div_element.style.margin = "20px";
-    new_div_element.style.padding = "20px";
+    new_div_element.classList.add('article');
     let post_title = document.createElement('h4');
     post_title.textContent = dataPost.title;
     new_div_element.appendChild(post_title);
     let new_p = document.createElement('p');
     new_p.textContent = dataPost.description;
     new_div_element.appendChild(new_p);
-    parent_element = document.querySelector('.post');
-    parent_element.insertBefore(new_div_element, parent_element.firstChild);
+    let parent_element = document.querySelector('.post');
+    parent_element.insertBefore(new_div_element, poselement);
     return new_div_element;
 }
 
@@ -50,21 +46,57 @@ $(document).ready(function () {
             duration: 1000,
             pauseOnHover: true
         },
-        items:{
-            width:500,
-            heigth:400,
+        items: {
+            width: 500,
         }
     });
 });
 
+
+//menu dropdown
 let dropdown = document.querySelector('.dropdown')
 
 dropdown.addEventListener('click', (e) => {
-  if (dropdown.classList.contains('closed')) {
-    dropdown.classList.remove('closed')
-  } else {
-    dropdown.classList.add('closed')    
-  }
+    console.log(e)
+    let menu = document.querySelector('.menu');
+    let icon = document.querySelector('.icon span');
+    if (!menu.classList.contains('open')) {
+        menu.classList.add('open');
+        icon.textContent = '-';
+    } else {
+        menu.classList.remove('open');
+        icon.textContent = '+';
+    }
 })
+
+
+let addpost = document.querySelector('#submit');
+let champs = document.querySelectorAll('.champ');
+console.log(champs);
+
+addpost.addEventListener('click', (e) => {
+    console.log(e);
+    let count = 0;
+    champs.forEach(element => {
+        console.log(element)
+        if (element.value === '') {
+            element.classList.add('error')
+            count++;
+        } else {
+            element.classList.remove('error')
+        }
+    })
+    if (count === 0) {
+        let newchamp = { 'title': champs[0].value, 'description': champs[1].value };
+        console.log(newchamp);
+        let position = document.querySelector('.article')
+        createPost(newchamp, position);
+        event.preventDefault();
+    }
+})
+
+/* addnewpost() */
+
+
 
 
