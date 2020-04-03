@@ -1,0 +1,41 @@
+/*formulaire*/
+h5{
+    cursor: pointer;
+}
+
+.champ{
+    width: 100%;
+}
+
+.openform{
+    height: 200px;
+}
+
+.form {
+    width: 100%;
+}
+
+.post {
+    margin: 20px;
+    padding: 20px;
+    background-color: #456990;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+.article {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f45b69;
+    border-radius: 25px;
+    border: solid  #6B2737;
+}
+
+.error{
+    background-color: red;
+}
