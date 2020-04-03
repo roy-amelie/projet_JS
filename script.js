@@ -69,6 +69,20 @@ dropdown.addEventListener('click', (e) => {
     }
 })
 
+//form
+const form= document.querySelector('h5');
+form.addEventListener('click', (e)=>{
+    let menu = document.querySelector('form');
+    let icon = document.querySelector('h5 span');
+    if (!menu.classList.contains('openform')) {
+        menu.classList.add('openform');
+        icon.textContent = '-';
+    } else {
+        menu.classList.remove('openform');
+        icon.textContent = '+';
+    }
+
+})
 
 let addpost = document.querySelector('#submit');
 let champs = document.querySelectorAll('.champ');
@@ -95,7 +109,7 @@ addpost.addEventListener('click', (e) => {
     }
 })
 
-/* addnewpost() */
+
 
 
 

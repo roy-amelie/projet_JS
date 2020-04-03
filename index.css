@@ -34,7 +34,7 @@ a {
 
 .menu {
     height: 0px;
-    transition: height 0.2s ease-in-out;
+    transition: height 0.5s ease-in-out;
     overflow: hidden;
 }
 
@@ -50,8 +50,20 @@ a {
 }
 
 /*formulaire*/
-.form {
+h5{
     cursor: pointer;
+}
+
+.champ{
+    width: 100%;
+}
+
+.openform{
+    height: 200px;
+}
+
+.form {
+    width: 100%;
 }
 
 /*titre*/
@@ -96,6 +108,41 @@ body main{
 
 .error{
     background-color: red;
+}
+
+/*gallery*/
+
+.selection{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.choix{
+    cursor: pointer;
+}
+
+.active{
+    background-color: #114b5f;
+    border-radius: 50%;
+}
+
+.list{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.mosaic{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: space-around;
 }
 
 
