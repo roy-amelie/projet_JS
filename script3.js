@@ -8,7 +8,7 @@ function getUserChoice(user_choice) {
 
 
 function getComputerChoice() {
-    let random_choice = Math.floor(Math.random() * 2);
+    let random_choice = Math.floor(Math.random() * 3);
     let computer_choice;
     if (random_choice === 0) {
         computer_choice = 'chi';
