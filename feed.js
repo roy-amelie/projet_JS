@@ -13,8 +13,14 @@ function createFeed(data) {
 }
 
 function createPost(dataPost, poselement = document.querySelector('.post').firstChild) {
-    let new_div_element = document.createElement('div');
+    let new_div_element = document.createElement('div');  
     new_div_element.classList.add('article');
+    if (poselement !== document.querySelector('.post').firstChild) {
+        let sup = document.createElement('p');
+        sup.classList.add('sup');
+        sup.textContent= "supprimer";
+        new_div_element.appendChild(sup);
+    }
     let post_title = document.createElement('h4');
     post_title.textContent = dataPost.title;
     new_div_element.appendChild(post_title);
@@ -34,26 +40,24 @@ $(document).ready(function () {
 
     // Using custom configuration
     $('#carousel').carouFredSel({
-        items: 3,      
+        items: 3,
         responsive: true,
         direction: "left",
-        width: '50%',
         scroll: {
             items: 1,
-            width: '50%',
             easing: "swing",
             duration: 1000,
             pauseOnHover: true
         },
         items: {
-            width: 500,
+            width: 100,
         }
     });
 });
 
 //form
-const form= document.querySelector('h5');
-form.addEventListener('click', (e)=>{
+const form = document.querySelector('h5');
+form.addEventListener('click', (e) => {
     let menu = document.querySelector('form');
     let icon = document.querySelector('h5 span');
     if (!menu.classList.contains('openform')) {
@@ -84,9 +88,15 @@ addpost.addEventListener('click', (e) => {
     })
     if (count === 0) {
         let newchamp = { 'title': champs[0].value, 'description': champs[1].value };
-        console.log(newchamp);
         let position = document.querySelector('.article')
         createPost(newchamp, position);
         event.preventDefault();
     }
+})
+
+let sup=document.querySelector('.sup')
+sup.addEventListener('click',(e)=>{
+    console.log(e);
+    let parent= document.querySelector('.sup').parentElement;
+    parent.remove;
 })
