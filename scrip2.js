@@ -3,14 +3,20 @@
 //gallery
 let imgtable = ["./img/gallery/chihiro1.jpeg", "./img/gallery/kiki1.jpg", "./img/gallery/kiki2.jpg", "./img/gallery/mononoke1.jpg", "./img/gallery/mononoke2.jpeg", "./img/gallery/nausicaa1.jpeg", "./img/gallery/nausicaa2.jpeg", "./img/gallery/totoro.jpg"]
 
-imgtable.forEach(element => {
+function viewpicture(table){
+    let parent = document.querySelector('.image');
+    while (parent.hasChildNodes()) {  
+        parent.removeChild(parent.firstChild);
+      }
+table.forEach(element => {
     let img = document.createElement('img');
     img.src=element;
-    img.width='200';
-    let parent = document.querySelector('.image');
-    console.log(img);
+    img.width='350';  
     parent.appendChild(img);
 });
+ }
+
+viewpicture(imgtable);
 
 const list = document.querySelector('#list');
 const mosaic = document.querySelector('#mosaic');
@@ -37,7 +43,7 @@ mosaic.addEventListener('click', (e) => {
     }
 })
 
-//form
+//form dropdown
 const form = document.querySelector('h5');
 form.addEventListener('click', (e) => {
     let menu = document.querySelector('form');
@@ -50,4 +56,18 @@ form.addEventListener('click', (e) => {
         icon.textContent = '+';
     }
 
+})
+
+//add new img
+const submit = document.querySelector('#submit');
+submit.addEventListener('click', (e) =>{
+    const champs = document.querySelector('.champ');
+    if ((champs.value==='') || (champs.value.length<10) || (champs.value.length>100)){       
+            champs.classList.add('error')
+    }
+    else {
+        imgtable.unshift(champs.value);
+        viewpicture(imgtable);
+    }
+    event.preventDefault();
 })
