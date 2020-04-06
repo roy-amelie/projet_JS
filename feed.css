@@ -40,3 +40,11 @@ h5{
 .error{
     background-color: red;
 }
+
+/*carousel*/
+
+#carousel{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
