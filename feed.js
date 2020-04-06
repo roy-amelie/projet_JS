@@ -34,12 +34,13 @@ $(document).ready(function () {
 
     // Using custom configuration
     $('#carousel').carouFredSel({
-        items: 3,
+        items: 3,      
         responsive: true,
         direction: "left",
+        width: '50%',
         scroll: {
             items: 1,
-            width: 50,
+            width: '50%',
             easing: "swing",
             duration: 1000,
             pauseOnHover: true
