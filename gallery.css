@@ -20,7 +20,7 @@
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
-	align-items: stretch;
+	align-items: center;
 	align-content: stretch;
 	width: 100%;
 }
