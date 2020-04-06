@@ -33,21 +33,33 @@
         </div>
     </header>
     <main>
-        <div class="selection" >
+        <div class="selection">
             <img class="choix active" id="list" src="./img/icones/listview_icon_131523.png" alt="liste">
             <img class="choix" id="mosaic" src="./img/icones/tileview_tile_view_icon_131494.png" alt="mosaique">
         </div>
-        <div class="image list">
-            <img src="./img/gallery/chihiro1.jpeg">
-            <img src="./img/gallery/kiki1.jpg">
-            <img src="./img/gallery/kiki2.jpg">
-            <img src="./img/gallery/mononoke1.jpg">
-            <img src="./img/gallery/mononoke2.jpeg">
-            <img src="./img/gallery/nausicaa1.jpeg">
-            <img src="./img/gallery/nausicaa2.jpeg">
-            <img src="./img/gallery/totoro.jpg">
-        </div>
+        <div class="post">
+            <div class="form ">
+                <h5 class="icon">Ajouter une photo <span>+</span></h5>
+                <form class="menu center">
+                    <label for="titre">Titre</label><br>
+                    <input type="text" class="champ"><br>
+                    <label for="post">Article</label><br>
+                    <textarea name="post" rows="5" cols="33" class="champ"></textarea><br>
+                    <input type="submit" id="submit" class="champ" value="Créer">
+                </form>
+            </div>
 
+            <div class="image list">
+                <!-- <img src="./img/gallery/chihiro1.jpeg" width="33%">
+                <img src="./img/gallery/kiki1.jpg" width="33%">
+                <img src="./img/gallery/kiki2.jpg" width="33%">
+                <img src="./img/gallery/mononoke1.jpg" width="33%">
+                <img src="./img/gallery/mononoke2.jpeg" width="33%">
+                <img src="./img/gallery/nausicaa1.jpeg" width="33%">
+                <img src="./img/gallery/nausicaa2.jpeg" width="33%">
+                <img src="./img/gallery/totoro.jpg" width="33%"> -->
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
     <script src="scrip2.js"></script>
