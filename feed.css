@@ -16,6 +16,7 @@ h5{
 }
 
 .post {
+    
     margin: 20px;
     padding: 20px;
     background-color: #456990;
@@ -24,37 +25,47 @@ h5{
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     align-content: stretch;
 }
 
 .article {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+    width: 400px;
     margin: 20px;
     padding: 20px;
-    background-color: #f45b69;
-    align-content: stretch;
+    background-color: white;
     border-radius: 25px;
-    border: solid  #6B2737;
+    border: 4px solid;
 }
 
 .error{
     background-color: red;
 }
 
-/*carousel*/
-#carousel{
-    width: 300px;
-    overflow: hidden;
-    margin: 0;
-}
-
-#carousel img{
-    display: block;
-    margin: 0;
-    width: 177.777%;
-}
-
 /*suppression article */
 .sup{
     cursor: pointer;
+}
+
+.container{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#carousel{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
 }

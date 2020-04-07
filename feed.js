@@ -1,31 +1,33 @@
 function fetchAllPosts() {
-    fetch("https://ghibliapi.herokuapp.com/films")
+    fetch("https://api.pokemontcg.io/v1/cards?subtype=EX")
         .then(response => response.json())
         .then(post => { createFeed(post); })
 }
 
 function createFeed(data) {
     let post = document.querySelector('.post');
-    console.log(data)
-    data.forEach(element => {
+    data.cards.forEach(element => {
         post.appendChild(createPost(element));
     })
 }
 
 function createPost(dataPost, poselement = document.querySelector('.post').firstChild) {
-    let new_div_element = document.createElement('div');  
+    let new_div_element = document.createElement('div');
     new_div_element.classList.add('article');
-    if (poselement !== document.querySelector('.post').firstChild) {
-        let sup = document.createElement('p');
-        sup.classList.add('sup');
-        sup.textContent= "supprimer";
-        new_div_element.appendChild(sup);
+    let img = document.createElement('img');
+    if (dataPost.imageUrl==="./img/carousel/4.png"){
+        let p = document.createElement('p');
+        p.textContent="Supprimer";
+        p.classList.add('sup');
+        new_div_element.appendChild(p);
     }
+    img.src = dataPost.imageUrl;
+    new_div_element.appendChild(img);
     let post_title = document.createElement('h4');
-    post_title.textContent = dataPost.title;
+    post_title.textContent = dataPost.name;
     new_div_element.appendChild(post_title);
     let new_p = document.createElement('p');
-    new_p.textContent = dataPost.description;
+    new_p.textContent = dataPost.types;
     new_div_element.appendChild(new_p);
     let parent_element = document.querySelector('.post');
     parent_element.insertBefore(new_div_element, poselement);
@@ -34,26 +36,25 @@ function createPost(dataPost, poselement = document.querySelector('.post').first
 
 fetchAllPosts();
 
-$(document).ready(function () {
-    //Using default configuration
+
+$(document).ready(function() {
+    // Using default configuration
     //$('#carousel').carouFredSel();
 
     // Using custom configuration
     $('#carousel').carouFredSel({
-        items: 3,
-        responsive: true,
-        direction: "left",
-        scroll: {
-            items: 1,
-            easing: "swing",
-            duration: 1000,
-            pauseOnHover: true
-        },
-        items: {
-            width: 100,
+        circular: true,
+        items     : 1,
+        direction : "left",
+        scroll : {
+            items         : 1,
+            easing        : "swing",
+            duration      : 500,
+            pauseOnHover  : true
         }
     });
 });
+
 
 //form
 const form = document.querySelector('h5');
@@ -72,13 +73,11 @@ form.addEventListener('click', (e) => {
 
 let addpost = document.querySelector('#submit');
 let champs = document.querySelectorAll('.champ');
-console.log(champs);
+
 
 addpost.addEventListener('click', (e) => {
-    console.log(e);
     let count = 0;
     champs.forEach(element => {
-        console.log(element)
         if (element.value === '') {
             element.classList.add('error')
             count++;
@@ -87,16 +86,19 @@ addpost.addEventListener('click', (e) => {
         }
     })
     if (count === 0) {
-        let newchamp = { 'title': champs[0].value, 'description': champs[1].value };
+        let newchamp = { 'name': champs[0].value, 'types': champs[1].value, "imageUrl": "./img/carousel/4.png" };
         let position = document.querySelector('.article')
         createPost(newchamp, position);
         event.preventDefault();
     }
 })
 
-let sup=document.querySelector('.sup')
-sup.addEventListener('click',(e)=>{
-    console.log(e);
-    let parent= document.querySelector('.sup').parentElement;
-    parent.remove;
-})
+document.addEventListener('click',function(event){
+    if(event.target.classList.contains('sup')){
+        let parent = document.querySelector('.sup').parentElement;
+        parent.remove()
+    }
+}, false)
+
+
+
