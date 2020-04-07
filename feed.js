@@ -38,7 +38,7 @@ function createPost(dataPost, poselement = document.querySelector('.post').first
 fetchAllPosts();
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     // Using default configuration
     //$('#carousel').carouFredSel();
 
@@ -65,13 +65,13 @@ function fetchAllSelect() {
         .then(response => response.json())
         .then(types => createSelect(types))
 }
+
 function createSelect(data) {
     data.types.forEach(element => {
         let parent = document.querySelector('.types');
         let option = document.createElement('option');
         option.textContent = element;
         parent.appendChild(option);
-        console.log(element)
     });
 }
 
@@ -87,22 +87,34 @@ select.addEventListener('change', (e) => {
 })
 
 // affichage image en fonction du select
-function selectImg(data,select){
+function selectImg(data, select) {
     let parent = document.querySelector('.choix_pokemon')
-    while (parent.hasChildNodes()) {  
+    while (parent.hasChildNodes()) {
         parent.removeChild(parent.firstChild);
-      } 
+    }
     data.cards.forEach(element => {
-        if(element.types[0]===select){
+        if (element.types[0] === select) {
             parent.appendChild(createImage(element))
         }
     });
 }
 
-function createImage(dataimg){
+function createImage(dataimg) {
+    let li = document.createElement('li')
+    let input = document.createElement('input')
+    input.type = "radio"
+    input.name = "choix"
+    input.classList.add('champ')
+        // console.log(dataimg)
+    input.value = dataimg.imageUrl
+    li.appendChild(input);
+    let label = document.createElement('label')
+    label.for = "choix";
     let img = document.createElement('img')
     img.src = dataimg.imageUrl;
-    return img
+    label.appendChild(img);
+    li.appendChild(label)
+    return li
 }
 
 
@@ -121,34 +133,50 @@ form.addEventListener('click', (e) => {
 })
 
 let addpost = document.querySelector('#submit');
-let champs = document.querySelectorAll('.champ');
 
 
 addpost.addEventListener('click', (e) => {
+    let champs = document.querySelectorAll('.champ');
+    console.log(champs)
     event.preventDefault();
     let count = 0;
+    let imageUrl = "./img/carousel/4.png";
     champs.forEach(element => {
-        console.log(champs)
+
         if (element.value === '') {
             element.classList.add('error')
             count++;
         } else {
             element.classList.remove('error')
         }
+
+        if (element.classList.contains('checked')){
+            imageUrl=element.value
+        }
     })
     if (count === 0) {
-        let newchamp = { 'name': champs[0].value, 'types': champs[1].value, "imageUrl": "./img/carousel/4.png" };
+
+        let newchamp = { 'name': champs[0].value, 'types': champs[1].value, "imageUrl": imageUrl };
         let position = document.querySelector('.article')
         createPost(newchamp, position);
     }
 })
 
-document.addEventListener('click', function (event) {
+document.addEventListener('click', function(event) {
+    if(event.target.type === 'radio'){
+        let checked = document.querySelectorAll('.checked')
+        
+        if (checked.length>0){
+            checked.forEach(element => {
+                element.classList.remove('checked')
+            });
+        }
+        console.log(checked)
+        event.target.classList.add('checked');
+        console.log(event.target)
+    }
     if (event.target.classList.contains('sup')) {
         let parent = document.querySelector('.sup').parentElement;
         parent.remove()
     }
 }, false)
-
-
-
