@@ -1,22 +1,27 @@
+function fetchAllPosts() {
+    fetch("https://api.pokemontcg.io/v1/cards?subtype=EX")
+        .then(response => response.json())
+        .then(post => { createGallery(post); })
+}
 
+function createGallery(data){
+    let img = document.querySelector('.image');
+    data.cards.forEach(element => {
+        img.appendChild(createViewImage(element))
+    });
+}
 
-//gallery
-let imgtable = ["./img/gallery/chihiro1.jpeg", "./img/gallery/kiki1.jpg", "./img/gallery/kiki2.jpg", "./img/gallery/mononoke1.jpg", "./img/gallery/mononoke2.jpeg", "./img/gallery/nausicaa1.jpeg", "./img/gallery/nausicaa2.jpeg", "./img/gallery/totoro.jpg"]
-
-function viewpicture(table){
+function createViewImage(elementtable){
+    console.log(elementtable)
     let parent = document.querySelector('.image');
-    while (parent.hasChildNodes()) {  
-        parent.removeChild(parent.firstChild);
-      }
-table.forEach(element => {
     let img = document.createElement('img');
-    img.src=element;
-    img.width='350';  
-    parent.appendChild(img);
-});
- }
+    img.src = elementtable.imageUrl;
+    parent.insertBefore(img, parent.firstChild);
+    return img
+}
 
-viewpicture(imgtable);
+fetchAllPosts()
+
 
 const list = document.querySelector('#list');
 const mosaic = document.querySelector('#mosaic');
@@ -66,8 +71,9 @@ submit.addEventListener('click', (e) =>{
             champs.classList.add('error')
     }
     else {
-        imgtable.unshift(champs.value);
-        viewpicture(imgtable);
+        position = document.querySelector('.image')
+        objet={'imageUrl': champs.value}
+        createViewImage(objet, position)
     }
     event.preventDefault();
 })
