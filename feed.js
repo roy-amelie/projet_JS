@@ -13,19 +13,20 @@ function createFeed(data) {
 }
 
 function createPost(dataPost, poselement = document.querySelector('.post').firstChild) {
+    console.log(dataPost)
     let new_div_element = document.createElement('div');
     new_div_element.classList.add('article');
     let img = document.createElement('img');
-    if (dataPost.imageUrl === "./img/carousel/4.png") {
-        let p = document.createElement('p');
-        p.textContent = "Supprimer";
-        p.classList.add('sup');
-        new_div_element.appendChild(p);
-    }
     img.src = dataPost.imageUrl;
     new_div_element.appendChild(img);
     let div_text= document.createElement('div')
     div_text.classList.add('text');
+    if (dataPost.hasOwnProperty('create')=== true) {
+        let p = document.createElement('p');
+        p.textContent = "Supprimer";
+        p.classList.add('sup');
+        div_text.appendChild(p);
+    }
     let post_title = document.createElement('h4');
     post_title.textContent = dataPost.name;
     div_text.appendChild(post_title);
@@ -124,13 +125,11 @@ function createImage(dataimg) {
 const form = document.querySelector('h5');
 form.addEventListener('click', (e) => {
     let menu = document.querySelector('form');
-    let icon = document.querySelector('h5 span');
     if (!menu.classList.contains('openform')) {
         menu.classList.add('openform');
-        icon.textContent = '-';
+
     } else {
         menu.classList.remove('openform');
-        icon.textContent = '+';
     }
 
 })
@@ -159,7 +158,7 @@ addpost.addEventListener('click', (e) => {
     })
     if (count === 0) {
 
-        let newchamp = { 'name': champs[0].value, 'types': champs[1].value, "imageUrl": imageUrl };
+        let newchamp = { 'name': champs[0].value, 'types': champs[1].value, "imageUrl": imageUrl, 'create': 'yes' };
         let position = document.querySelector('.article')
         createPost(newchamp, position);
     }
@@ -168,7 +167,6 @@ addpost.addEventListener('click', (e) => {
 document.addEventListener('click', function(event) {
     if(event.target.type === 'radio'){
         let checked = document.querySelectorAll('.checked')
-        
         if (checked.length>0){
             checked.forEach(element => {
                 element.classList.remove('checked')
@@ -176,10 +174,15 @@ document.addEventListener('click', function(event) {
         }
         console.log(checked)
         event.target.classList.add('checked');
+        let submit = document.querySelector('#submit')
+        submit.classList.remove('hidden')
         console.log(event.target)
     }
+
     if (event.target.classList.contains('sup')) {
-        let parent = document.querySelector('.sup').parentElement;
+        
+        let parent1 = document.querySelector('.sup').parentElement;
+        parent = parent1.parentElement
         parent.remove()
     }
 }, false)

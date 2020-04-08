@@ -8,10 +8,8 @@ dropdown.addEventListener('click', (e) => {
     let icon = document.querySelector('.icon span');
     if (!menu.classList.contains('open')) {
         menu.classList.add('open');
-        icon.textContent = '-';
     } else {
         menu.classList.remove('open');
-        icon.textContent = '+';
     }
 })
 

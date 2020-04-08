@@ -4,9 +4,6 @@ h5 {
     cursor: pointer;
 }
 
-.champ {
-    width: 100%;
-}
 
 .openform {
     height: 100%;
@@ -19,7 +16,7 @@ form {
     justify-content: flex-start;
     align-items: center;
     align-content: center;
-    width: 100%;
+   
 }
 
 .form {
@@ -29,6 +26,49 @@ form {
     justify-content: flex-start;
     align-items: center;
     align-content: stretch;
+}
+
+.form h5{
+    font-size: 15px;
+}
+.form ul{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+}
+.form li {
+    list-style: none;
+    /* border-radius: 10px;
+    border: solid 3px #77ffb0 ; */
+}
+
+radio{
+    display: none;
+}
+
+.checked{
+    border: solid 3px #77ffb0 ;
+}
+
+.input{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    
+}
+
+.element_input{
+    margin: 20px;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 .post {
@@ -71,7 +111,16 @@ form {
 	justify-content: flex-start;
 	align-items: stretch;
     align-content: stretch;
+    padding: 20px;
     margin: 20px;
+}
+
+.text h4{
+    font-size: 23px;
+} 
+
+.text p {
+    font-size: 20px;
 }
 
 .error {

@@ -21,11 +21,11 @@
         <nav>
             <div class="dropdown ">
                 <h3 class="icon">Menu </h2>
-                <ul class="menu">
-                    <li><a href="index.html">Feed</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="pfc.html">Jeux</a></li>
-                </ul>
+                    <ul class="menu">
+                        <li><a href="index.html">Feed</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="pfc.html">Jeux</a></li>
+                    </ul>
             </div>
         </nav>
         <div>
@@ -42,24 +42,29 @@
                 <img src="./img/carousel/3.png">
             </div>
         </div>
-    
-            <div class="form ">
-                <h5 class="icon">Créer mon Pokémon <span>+</span></h5>
-                <form class="menu center">
-                    
-                    <label for="nom">NOM</label><br>
-                    <input type="text" class="champ"><br>
-                    <label for="types">TYPES</label><br>
-                    <select class="types champ">
-    
-                    </select>
-                    <ul class="choix_pokemon">
 
-                    </ul>
-                    <input type="submit" id="submit" class="champ" value="Créer">
-                </form>
-            </div>
-        
+        <div class="form ">
+            <h5 class="icon">Créer mon Pokémon </h5>
+            <form class="menu">
+                <div class="input">
+                    <div class="element_input">
+                        <label for="nom">NOM</label><br>
+                        <input type="text" class="champ"><br>
+                    </div>
+                    <div class="element_input">
+                        <label for="types">TYPES</label><br>
+                        <select class="types champ">
+
+                        </select>
+                    </div>
+                </div>
+                <ul class="choix_pokemon">
+
+                </ul>
+                <input type="submit" id="submit" class="champ hidden" value="Créer">
+            </form>
+        </div>
+
         <div class="post">
         </div>
     </main>
