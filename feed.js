@@ -13,7 +13,6 @@ function createFeed(data) {
 }
 
 function createPost(dataPost, poselement = document.querySelector('.post').firstChild) {
-    console.log(dataPost)
     let new_div_element = document.createElement('div');
     new_div_element.classList.add('article');
     let img = document.createElement('img');
@@ -109,11 +108,11 @@ function createImage(dataimg) {
     input.type = "radio"
     input.name = "choix"
     input.classList.add('champ')
-        // console.log(dataimg)
+    input.setAttribute("id",dataimg.id)
     input.value = dataimg.imageUrl
     li.appendChild(input);
     let label = document.createElement('label')
-    label.for = "choix";
+    label.setAttribute("for",dataimg.id);
     let img = document.createElement('img')
     img.src = dataimg.imageUrl;
     label.appendChild(img);
@@ -139,7 +138,6 @@ let addpost = document.querySelector('#submit');
 
 addpost.addEventListener('click', (e) => {
     let champs = document.querySelectorAll('.champ');
-    console.log(champs)
     event.preventDefault();
     let count = 0;
     let imageUrl = "./img/carousel/4.png";
@@ -166,14 +164,15 @@ addpost.addEventListener('click', (e) => {
 
 document.addEventListener('click', function(event) {
     if(event.target.type === 'radio'){
+        console.log(event.taget)
         let checked = document.querySelectorAll('.checked')
         if (checked.length>0){
             checked.forEach(element => {
                 element.classList.remove('checked')
             });
         }
-        console.log(checked)
         event.target.classList.add('checked');
+        event.target.nextSibling.firstChild.classList.add('checked')
         let submit = document.querySelector('#submit')
         submit.classList.remove('hidden')
         console.log(event.target)

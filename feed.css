@@ -41,16 +41,17 @@ form {
 }
 .form li {
     list-style: none;
-    /* border-radius: 10px;
-    border: solid 3px #77ffb0 ; */
+    margin: 10px;
 }
 
-radio{
-    display: none;
+input[type=radio]{
+    visibility: hidden;
+  position: absolute;
 }
 
 .checked{
-    border: solid 3px #77ffb0 ;
+    border: solid 10px #77ffb0 ;
+    border-radius: 20px;
 }
 
 .input{
