@@ -35,13 +35,9 @@ function determineWinner(user_Choice, computer_Choice) {
 function playGame(user_choice){
     let uChoice=getUserChoice(user_choice);
     let computerChoice =getComputerChoice();
-    console.log(uChoice);
-    console.log(computerChoice);
     let result = determineWinner(uChoice,computerChoice);
     viewresult(uChoice,computerChoice,result)
-    console.log(result);
 }
-
 
 const chi= document.querySelector('.chi');
 const fou= document.querySelector('.fou');
