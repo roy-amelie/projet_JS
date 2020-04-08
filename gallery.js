@@ -12,7 +12,6 @@ function createGallery(data){
 }
 
 function createViewImage(elementtable){
-    console.log(elementtable)
     let parent = document.querySelector('.image');
     let img = document.createElement('img');
     img.src = elementtable.imageUrl;
@@ -25,12 +24,9 @@ fetchAllPosts()
 
 const list = document.querySelector('#list');
 const mosaic = document.querySelector('#mosaic');
-//const img = document.querySelector('.image');
 const img = document.querySelector('.image');
 
 list.addEventListener('click', (e) => {
-    console.log(e);
-
     if (!list.classList.contains('active')) {
         mosaic.classList.remove('active');
         list.classList.add('active');
@@ -52,13 +48,10 @@ mosaic.addEventListener('click', (e) => {
 const form = document.querySelector('h5');
 form.addEventListener('click', (e) => {
     let menu = document.querySelector('form');
-    let icon = document.querySelector('h5 span');
     if (!menu.classList.contains('openform')) {
         menu.classList.add('openform');
-        icon.textContent = '-';
     } else {
         menu.classList.remove('openform');
-        icon.textContent = '+';
     }
 
 })

@@ -11,12 +11,12 @@
 }
 
 .active{
-    background-color: #114b5f;
+    background-color:#77ffb0;
     border-radius: 50%;
 }
 
 .image img{
-    margin: 20px;
+    margin: 10px;
 }
 
 .list{
@@ -33,13 +33,33 @@
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	align-content: space-around;
 }
 .form {
-    width: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
 }
+
+.form h5 {
+    font-size: 15px;
+}
+
+form{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+
 .openform{
     height: 100px;
 }
@@ -48,14 +68,11 @@ h5{
     cursor: pointer;
 }
 
-.champ{
-    width: 100%;
-}
+
 
 .post {
-    margin: 20px;
-    padding: 20px;
-    background-color: #456990;
+    
+    
     border-radius: 25px;
     display: flex;
     flex-direction: column;
