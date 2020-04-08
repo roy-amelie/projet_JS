@@ -24,12 +24,15 @@ function createPost(dataPost, poselement = document.querySelector('.post').first
     }
     img.src = dataPost.imageUrl;
     new_div_element.appendChild(img);
+    let div_text= document.createElement('div')
+    div_text.classList.add('text');
     let post_title = document.createElement('h4');
     post_title.textContent = dataPost.name;
-    new_div_element.appendChild(post_title);
+    div_text.appendChild(post_title);
     let new_p = document.createElement('p');
     new_p.textContent = dataPost.types;
-    new_div_element.appendChild(new_p);
+    div_text.appendChild(new_p);
+    new_div_element.appendChild(div_text)
     let parent_element = document.querySelector('.post');
     parent_element.insertBefore(new_div_element, poselement);
     return new_div_element;
@@ -45,7 +48,7 @@ $(document).ready(function() {
     // Using custom configuration
     $('#carousel').carouFredSel({
         circular: true,
-        items: 1,
+        items: 2,
         direction: "left",
         scroll: {
             items: 1,

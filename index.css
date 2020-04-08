@@ -1,9 +1,4 @@
-body{
-    background-color:#e4fde1 ;
-    margin: 0;
-    font-family: Courier New;
-    font-size: 20px;
-}
+
 /*nav*/
 
 
@@ -15,22 +10,23 @@ ul {
 
 a {
     text-decoration: none;
-    color:#6b2737;
+    color:black;
 }
 
 .dropdown {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+    align-content: stretch;
+    padding: 10px;
     overflow: hidden;
-    background:#114b5f;
+    background:#77ffb0;
     width: 100%;
     cursor: pointer;
 }
 
-.icon {
-    color: #6b2737;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px 0 10px;
-}
 
 .menu {
     height: 0px;
@@ -43,28 +39,24 @@ a {
 }
 
 .menu li {
-    font-size: 15px;
+    font-size: 12px;
     text-transform: uppercase;
     padding: 14px 10px;
-    border-top: solid 1px #6b2737;
+    border-top: solid 1px ;
 }
 
 /*titre*/
 
 body header div{
-    color: #e4fde1;
-    background-color: #6b2737;
-    text-align: center;
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
-	align-items: stretch;
+	align-items: center;
 	align-content: stretch;
 }
 
 body main{
-    background-color: #e4fde1;
     height: 100%;
 }
 
